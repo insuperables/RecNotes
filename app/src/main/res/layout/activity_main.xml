@@ -14,10 +14,34 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_marginTop="-3dp"
-        android:progress="20"
-        android:visibility="gone"/>
+        android:progress="20" />
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/myWebView" />
+        android:id="@+id/myWebView"
+        android:visibility="gone"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout">
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/no_internet"
+            android:id="@+id/noConnectionLogo"/>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:text="Retry"
+            android:background="@color/purple_700"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:layout_below="@id/noConnectionLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:id="@+id/btnNoConnection"/>
+
+    </RelativeLayout>
 </LinearLayout>
