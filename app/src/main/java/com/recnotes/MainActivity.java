@@ -1,5 +1,6 @@
 package com.recnotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -113,5 +116,39 @@ public class MainActivity extends AppCompatActivity {
             relativeLayout.setVisibility(View.VISIBLE);
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()){
+
+            case R.id.nav_previous:
+                onBackPressed();
+                break;
+
+            case R.id.nav_next:
+
+                if(webView.canGoForward()){
+                    webView.goForward();
+                }
+
+                break;
+
+            case R.id.nav_reload:
+                webView.reload();
+                break;
+
+
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
